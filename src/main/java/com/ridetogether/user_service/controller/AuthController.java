@@ -1,6 +1,7 @@
 package com.ridetogether.user_service.controller;
 
 
+import com.ridetogether.user_service.dto.UserDto;
 import com.ridetogether.user_service.model.LoginRequest;
 import com.ridetogether.user_service.model.RegisterRequest;
 import com.ridetogether.user_service.model.User;
@@ -30,7 +31,7 @@ public class AuthController {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
 
-    public AuthController(UserRepository userRepository, UserService userService,
+    public AuthController(UserService userService,
                           PasswordEncoder passwordEncoder,
                           JwtService jwtService) {
         this.userService = userService;
@@ -85,7 +86,7 @@ public class AuthController {
             return ResponseEntity.badRequest()
                     .body("VALIDATION_ERROR Invalid register request");
         }
-        User user = userService.registerNewUser(request);
+        UserDto user = userService.registerNewUser(request);
         logger.info("User parsed from request: " + user.toString());
         return ResponseEntity.ok(user);
     }
@@ -98,7 +99,7 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
         }
 
-        User user = userService.findByEmail(request.getEmail()).get();
+        User user = userService.findByEmailNotDto(request.getEmail()).get();
 
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");

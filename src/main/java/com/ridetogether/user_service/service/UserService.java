@@ -1,6 +1,10 @@
 package com.ridetogether.user_service.service;
 
 
+import com.ridetogether.user_service.dto.UserDto;
+import com.ridetogether.user_service.mapper.DriverMapper;
+import com.ridetogether.user_service.mapper.PassengerMapper;
+import com.ridetogether.user_service.mapper.UserMapper;
 import com.ridetogether.user_service.model.*;
 import com.ridetogether.user_service.repository.DriverRepository;
 import com.ridetogether.user_service.repository.PassengerRepository;
@@ -31,24 +35,32 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public Optional<User> findById(long id) {
-        return userRepository.findById(id);
+    public Optional<UserDto> findById(long id) {
+        return userRepository.findById(id).map(UserMapper::toDto);
     }
 
-    public Optional<User> findByEmail(String email){
+    public Optional<UserDto> findByEmail(String email){
+        return userRepository.findByEmail(email).map(UserMapper::toDto);
+    }
+
+
+    public Optional<User> findByEmailNotDto(String email){
         return userRepository.findByEmail(email);
     }
 
-    public List<User> findAll() {
-        return userRepository.findAll();
+    public List<UserDto> findAll() {
+        return userRepository.findAll()
+                .stream()
+                .map(UserMapper::toDto)
+                .toList();
     }
 
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public UserDto createUser(User user) {
+        return UserMapper.toDto(userRepository.save(user));
     }
 
-    public User updateUser(User user) {
-        return userRepository.save(user);
+    public UserDto updateUser(User user) {
+        return UserMapper.toDto(userRepository.save(user));
     }
 
     public void deleteUser(User user) {
@@ -59,30 +71,33 @@ public class UserService {
         return userRepository.findByRoleAndTimeOverlap(role, startTime, endTime);
     }
 
-    //TODO: they should be order by the closest! Shouldn't return all users and so on
-    public List<User> findUsersWithMatchingSchedulesAndOppositeRole(long id) {
+    public List<UserDto> findUsersWithMatchingSchedulesAndOppositeRole(long id) {
         Optional<User> userOpt = userRepository.findById(id);
-        User user = userOpt.get();
-        //set user role to the opposite
-        UserRole role = user.getRole() == UserRole.DRIVER ? UserRole.PASSENGER : UserRole.DRIVER;
+        if (userOpt.isEmpty()) return List.of();
 
-        return findByRoleAndTimeOverlap(role, user.getPreferredArrivalStart(), user.getPreferredArrivalEnd());
+        User user = userOpt.get();
+        UserRole oppositeRole = user.getRole() == UserRole.DRIVER ? UserRole.PASSENGER : UserRole.DRIVER;
+
+        return findByRoleAndTimeOverlap(oppositeRole, user.getPreferredArrivalStart(), user.getPreferredArrivalEnd())
+                .stream()
+                .map(UserMapper::toDto)
+                .toList();
     }
 
-    // Map RegisterRequest to proper User subclass based on role and save
-    public User registerNewUser(RegisterRequest request) {
+    public UserDto registerNewUser(RegisterRequest request) {
+        User savedUser;
         if (request.getRole() == UserRole.DRIVER) {
             Driver driver = new Driver();
             mapCommonFieldsDriver(driver, request);
-           return driverRepository.save(driver);
+            return DriverMapper.toDto(driverRepository.save(driver));
         } else if (request.getRole() == UserRole.PASSENGER) {
             Passenger passenger = new Passenger();
             mapCommonFieldsPassenger(passenger, request);
-            return passengerRepository.save(passenger);
+            return PassengerMapper.toDto(passengerRepository.save(passenger));
+
         } else {
             throw new IllegalArgumentException("Unsupported role: " + request.getRole());
         }
-
     }
 
     private void mapCommonFieldsDriver(Driver driver, RegisterRequest request) {
