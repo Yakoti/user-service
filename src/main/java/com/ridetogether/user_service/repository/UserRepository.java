@@ -15,7 +15,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT u FROM User u WHERE u.role = :role AND " +
             "((u.preferredArrivalStart <= :endTime AND u.preferredArrivalEnd >= :startTime))")
-    List<User> findByRoleAndTimeOverlap(@Param("role") UserRole role,
+    List<User> findByRoleAndArrivalWindow(@Param("role") UserRole role,
                                         @Param("startTime") LocalTime startTime,
                                         @Param("endTime") LocalTime endTime);
 

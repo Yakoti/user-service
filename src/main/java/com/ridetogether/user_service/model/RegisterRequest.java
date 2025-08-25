@@ -17,7 +17,7 @@ public class RegisterRequest {
     @NotBlank
     private String name;
 
-    @Email
+    @Email(message = "Invalid email adress")
     @NotBlank
     private String email;
 
