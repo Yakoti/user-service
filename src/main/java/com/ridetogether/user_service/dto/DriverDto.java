@@ -12,7 +12,6 @@ import java.time.LocalTime;
 @Setter
 public class DriverDto {
     private Long id;
-
     private String name;
     private String email;
     private String phone;
@@ -22,8 +21,6 @@ public class DriverDto {
     private LocalTime preferredArrivalEnd;
     private int flexibilityMinutes;
     private double flexibilityKm;
-
-    @Enumerated(EnumType.STRING)
     private UserRole role;
 
     private int availableSeats;

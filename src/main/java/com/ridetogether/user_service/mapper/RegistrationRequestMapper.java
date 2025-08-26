@@ -10,7 +10,7 @@ public class RegistrationRequestMapper {
         user.setName(req.getName());
         user.setEmail(req.getEmail());
         //password is encoded in the service layer
-        user.setEmail(req.getPassword());
+        user.setPassword(req.getPassword());
         user.setPhone(req.getPhone());
         user.setHomeAddress(req.getHomeAddress());
         user.setOfficeAddress(req.getOfficeAddress());

@@ -31,10 +31,10 @@ public class AuthService {
 
     public String login(LoginRequest request){
         User user = userService.findByEmail(request.getEmail())
-                .orElseThrow(() -> new IllegalArgumentException("Invalid credentials"));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid credentials no such user"));
 
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword()))
-            throw new IllegalArgumentException("Invalid credentials");
+            throw new IllegalArgumentException("Invalid credentials wrong pass");
 
         return jwtService.generateToken(user);
     }
