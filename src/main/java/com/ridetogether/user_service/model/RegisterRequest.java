@@ -7,18 +7,19 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalTime;
 
-//TODO: ADD validation for the addresses so they form valid urls!
+//TODO: add validation for adresses
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegisterRequest {
 
-    @NotBlank
+    @NotBlank(message = "Name is required")
     private String name;
 
-    @Email(message = "Invalid email adress")
-    @NotBlank
+    @Email(message = "Invalid email address")
+    @NotBlank(message = "Email is required")
     private String email;
 
     @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$",
@@ -28,22 +29,30 @@ public class RegisterRequest {
     @Pattern(regexp = "\\+?[0-9]{10,15}", message = "Invalid phone number")
     private String phone;
 
+    @NotBlank(message = "Home address is required")
     private String homeAddress;
+
+    @NotBlank(message = "Office address is required")
     private String officeAddress;
 
+    @NotNull(message = "Preferred arrival start time is required")
     private LocalTime preferredArrivalStart;
+
+    @NotNull(message = "Preferred arrival end time is required")
     private LocalTime preferredArrivalEnd;
 
-    @Min(0)
+    @Min(value = 0, message = "Flexibility minutes cannot be negative")
     private int flexibilityMinutes;
 
-    @DecimalMin("0.0")
+    @DecimalMin(value = "0.0", message = "Flexibility km cannot be negative")
     private double flexibilityKm;
 
-    @NotNull
+    @NotNull(message = "Role is required")
     private UserRole role;
 
+    @Min(value = 0, message = "Available seats cannot be negative")
     private int availableSeats;
 
+    @DecimalMin(value = "0.0", message = "Cost per 100km cannot be negative")
     private double costPer100KmEUR;
 }
