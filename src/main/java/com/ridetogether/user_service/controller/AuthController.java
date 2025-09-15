@@ -1,13 +1,9 @@
 package com.ridetogether.user_service.controller;
 
-
 import com.ridetogether.user_service.model.LoginRequest;
 import com.ridetogether.user_service.model.RegisterRequest;
-import com.ridetogether.user_service.model.User;
-import com.ridetogether.user_service.repository.UserRepository;
 import com.ridetogether.user_service.service.AuthService;
 import com.ridetogether.user_service.service.JwtService;
-import com.ridetogether.user_service.service.UserService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,19 +11,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-//TODO: logout controller maybe not needed?
-
 
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
 
-    private final Logger logger = LoggerFactory.getLogger(AuthController.class);
+    private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
     private final AuthService authService;
     private final PasswordEncoder passwordEncoder;
@@ -43,56 +35,41 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody RegisterRequest request, BindingResult result) {
-        //map validation errors to a simple error response
         if (result.hasErrors()) {
             List<String> errors = result.getFieldErrors().stream()
                     .map(e -> e.getField() + ": " + e.getDefaultMessage())
                     .toList();
+
+            logger.warn("Registration validation failed: {}", errors);
             return ResponseEntity.badRequest().body(errors);
         }
 
         try {
             String token = authService.register(request);
+            logger.info("User registered successfully: {}", request.getEmail());
             return ResponseEntity.ok(token);
         } catch (IllegalArgumentException e) {
+            logger.error("Registration failed for {}: {}", request.getEmail(), e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
-        try{
+        logger.info("Login attempt for {}", request.getEmail());
+        try {
             String token = authService.login(request);
+            logger.info("Login successful for {}", request.getEmail());
             return ResponseEntity.ok(token);
-        }catch(IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
+            logger.warn("Login failed for {}: {}", request.getEmail(), e.getMessage());
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
     }
 
     @GetMapping("/test")
-    public String testAuth(){
+    public String testAuth() {
+        logger.debug("Test endpoint accessed");
         return "hey acces to auth/ endpoints works";
     }
-
-//    @GetMapping("/login")
-//    public ResponseEntity<?> loginBrowser(
-//            @RequestParam String email,
-//            @RequestParam String password) {
-//        var userOpt = userService.findByEmail(email);
-//        if (userOpt.isEmpty()) {
-//            System.out.println("User not found for email: " + email);
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
-//        }
-//
-//        User user = userOpt.get();
-//        boolean matches = passwordEncoder.matches(password, user.getPassword());
-//        System.out.println("Password matches: " + matches);
-//        if (!matches) {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
-//        }
-//        String token = jwtService.generateToken(user);
-//        return ResponseEntity.ok(token);
-//    }
-
-
 }
