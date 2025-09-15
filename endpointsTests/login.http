@@ -1,0 +1,197 @@
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "alice.smith@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "carol.williams@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "eve.davis@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "grace.wilson@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "ivy.taylor@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "karen.thomas@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "mia.white@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "olivia.martin@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "quinn.walker@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "sam.young@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "bob.johnson@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "david.brown@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "frank.miller@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "henry.moore@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "jack.anderson@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "leo.jackson@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "nick.harris@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "paul.lee@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "rachel.hall@example.com",
+  "password": "Password22!"
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "tina.king@example.com",
+  "password": "Password22!"
+}

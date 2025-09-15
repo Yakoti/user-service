@@ -1,0 +1,40 @@
+#### Create a new passenger
+#POST http://localhost:8081/users/passengers
+#Content-Type: application/json
+#
+#{
+#  "name": "Jane Passenger",
+#  "email": "jane.passenger@example.com",
+#  "password": "password22",
+#  "phone": "+359888777777",
+#  "homeAddress": "20 Vitosha Blvd, Sofia, Bulgaria",
+#  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+#  "preferredArrivalStart": "08:00:00",
+#  "preferredArrivalEnd": "09:00:00",
+#  "flexibilityMinutes": 10,
+#  "flexibilityKm": 5.0
+#}
+
+###
+
+### Get passenger by ID
+GET http://localhost:8081/users/passengers/1
+Content-Type: application/json
+
+###
+
+### Get all passengers
+GET http://localhost:8081/users/passengers
+Content-Type: application/json
+
+###
+
+### Find matching drivers for passenger
+GET http://localhost:8081/users/passengers/1/matching-drivers
+Content-Type: application/json
+
+###
+
+### Delete passenger
+#DELETE http://localhost:8081/users/passengers/1
+#Content-Type: application/json

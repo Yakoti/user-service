@@ -1,0 +1,58 @@
+### Create user
+POST http://localhost:8081/users
+Content-Type: application/json
+
+{
+  "name": "Bob Smith",
+  "email": "bob.smith@example.com",
+  "password": "password22",
+  "phone": "+359888777777",
+  "homeAddress": "5 Vitosha Blvd, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:30:00",
+  "preferredArrivalEnd": "09:30:00",
+  "flexibilityMinutes": 15,
+  "flexibilityKm": 5.0,
+  "role": "PASSENGER",
+  "availableSeats": 0,
+  "costPer100KmEUR": 0
+}
+
+###
+
+### Update user (example: change phone and flexibility)
+PUT http://localhost:8081/users/2
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "Bob Smith",
+  "email": "bob.smith@example.com",
+  "password": "password22",
+  "phone": "+359888888888",
+  "homeAddress": "5 Vitosha Blvd, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:30:00",
+  "preferredArrivalEnd": "09:30:00",
+  "flexibilityMinutes": 20,
+  "flexibilityKm": 6.0,
+  "role": "PASSENGER",
+  "availableSeats": 0,
+  "costPer100KmEUR": 0
+}
+
+###
+
+### Get user by id
+GET http://localhost:8081/users/2
+Content-Type: application/json
+
+###
+
+### Get all users
+GET http://localhost:8081/users
+Content-Type: application/json
+
+### Delete user
+DELETE http://localhost:8081/users/2
+Content-Type: application/json

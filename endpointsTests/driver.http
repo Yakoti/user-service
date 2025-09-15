@@ -1,0 +1,43 @@
+#### Create a new driver
+#POST http://localhost:8081/users/drivers
+#Content-Type: application/json
+#
+#{
+#  "name": "John Driver",
+#  "email": "john.driver@example.com",
+#  "password": "password22",
+#  "phone": "+359888999999",
+#  "homeAddress": "10 Vitosha Blvd, Sofia, Bulgaria",
+#  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+#  "preferredArrivalStart": "08:00:00",
+#  "preferredArrivalEnd": "09:00:00",
+#  "flexibilityMinutes": 15,
+#  "flexibilityKm": 5.0,
+#  "availableSeats": 3,
+#  "costPer100KmEUR": 12.0
+#}
+
+###
+
+### Get driver by ID
+#TODO this returns trying to map driver to passenger
+GET http://localhost:8081/users/drivers/15
+Content-Type: application/json
+
+###
+
+### Get all drivers
+GET http://localhost:8081/users/drivers
+Content-Type: application/json
+
+###
+
+### Find matching passengers for driver
+GET http://localhost:8081/users/drivers/1/matching-drivers
+Content-Type: application/json
+
+###
+
+### Delete driver
+DELETE http://localhost:8081/users/drivers/1
+Content-Type: application/json

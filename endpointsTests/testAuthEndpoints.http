@@ -1,0 +1,28 @@
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Alice Smith",
+  "email": "alice.smith@example.com",
+  "password": "Password22!",
+  "phone": "+359888123456",
+  "homeAddress": "1 Vitosha Blvd, Sofia, Bulgaria",
+  "officeAddress": "85 Bulgaria Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:00:00",
+  "preferredArrivalEnd": "09:00:00",
+  "flexibilityMinutes": 15,
+  "flexibilityKm": 5.0,
+  "role": "PASSENGER",
+  "availableSeats": 0,
+  "costPer100KmEUR": 0
+}
+
+###
+
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+{
+  "email": "alice.smith@example.com",
+  "password": "Password22!"
+}

@@ -20,6 +20,10 @@
   "costPer100KmEUR": 12.5
 }
 ```
+**Response Example:**
+```json
+"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJSaWRlVG9nZXRoZXJBcHAiLCJzdWIiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlkIjoiMSIsInJvbGUiOiJEUklWRVIiLCJpYXQiOjE2ODg1MjEyMDAsImV4cCI6MTY4OTEyNjAwMH0..."
+```
 
 ### POST /auth/register - Register Passenger
 ```json
@@ -39,6 +43,11 @@
   "costPer100KmEUR": 0.0
 }
 ```
+**Response Example:**
+```json
+"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJSaWRlVG9nZXRoZXJBcHAiLCJzdWIiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlkIjoiMSIsInJvbGUiOiJEUklWRVIiLCJpYXQiOjE2ODg1MjEyMDAsImV4cCI6MTY4OTEyNjAwMH0..."
+```
+
 
 ### POST /auth/login
 ```json

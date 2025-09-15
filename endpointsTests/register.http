@@ -1,0 +1,417 @@
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Alice Smith",
+  "email": "alice.smith@example.com",
+  "password": "Password22!",
+  "phone": "+359888123456",
+  "homeAddress": "1 Vitosha Blvd, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:00:00",
+  "preferredArrivalEnd": "09:00:00",
+  "flexibilityMinutes": 15,
+  "flexibilityKm": 5.0,
+  "role": "PASSENGER",
+  "availableSeats": 0,
+  "costPer100KmEUR": 0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Carol Williams",
+  "email": "carol.williams@example.com",
+  "password": "Password22!",
+  "phone": "+359888234567",
+  "homeAddress": "15 Stamboliyski Blvd, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "07:45:00",
+  "preferredArrivalEnd": "08:45:00",
+  "flexibilityMinutes": 20,
+  "flexibilityKm": 6.0,
+  "role": "PASSENGER",
+  "availableSeats": 0,
+  "costPer100KmEUR": 0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Eve Davis",
+  "email": "eve.davis@example.com",
+  "password": "Password22!",
+  "phone": "+359888345678",
+  "homeAddress": "42 Graf Ignatiev St, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:00:00",
+  "preferredArrivalEnd": "09:00:00",
+  "flexibilityMinutes": 10,
+  "flexibilityKm": 5.0,
+  "role": "PASSENGER",
+  "availableSeats": 0,
+  "costPer100KmEUR": 0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Grace Wilson",
+  "email": "grace.wilson@example.com",
+  "password": "Password22!",
+  "phone": "+359888456789",
+  "homeAddress": "12 Rakovski St, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "07:45:00",
+  "preferredArrivalEnd": "08:45:00",
+  "flexibilityMinutes": 15,
+  "flexibilityKm": 4.5,
+  "role": "PASSENGER",
+  "availableSeats": 0,
+  "costPer100KmEUR": 0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Ivy Taylor",
+  "email": "ivy.taylor@example.com",
+  "password": "Password22!",
+  "phone": "+359888567890",
+  "homeAddress": "88 Vasil Levski Blvd, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:00:00",
+  "preferredArrivalEnd": "09:00:00",
+  "flexibilityMinutes": 15,
+  "flexibilityKm": 5.5,
+  "role": "PASSENGER",
+  "availableSeats": 0,
+  "costPer100KmEUR": 0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Karen Thomas",
+  "email": "karen.thomas@example.com",
+  "password": "Password22!",
+  "phone": "+359888678901",
+  "homeAddress": "5 Alexander Battenberg Square, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "07:45:00",
+  "preferredArrivalEnd": "08:45:00",
+  "flexibilityMinutes": 10,
+  "flexibilityKm": 4.0,
+  "role": "PASSENGER",
+  "availableSeats": 0,
+  "costPer100KmEUR": 0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Mia White",
+  "email": "mia.white@example.com",
+  "password": "Password22!",
+  "phone": "+359888789012",
+  "homeAddress": "25 Tsar Osvoboditel Blvd, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:00:00",
+  "preferredArrivalEnd": "09:00:00",
+  "flexibilityMinutes": 10,
+  "flexibilityKm": 5.0,
+  "role": "PASSENGER",
+  "availableSeats": 0,
+  "costPer100KmEUR": 0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Olivia Martin",
+  "email": "olivia.martin@example.com",
+  "password": "Password22!",
+  "phone": "+359888890123",
+  "homeAddress": "7 William Gladstone St, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "07:45:00",
+  "preferredArrivalEnd": "08:45:00",
+  "flexibilityMinutes": 15,
+  "flexibilityKm": 3.5,
+  "role": "PASSENGER",
+  "availableSeats": 0,
+  "costPer100KmEUR": 0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Quinn Walker",
+  "email": "quinn.walker@example.com",
+  "password": "Password22!",
+  "phone": "+359888901234",
+  "homeAddress": "3 Ivan Vazov St, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:00:00",
+  "preferredArrivalEnd": "09:00:00",
+  "flexibilityMinutes": 15,
+  "flexibilityKm": 4.0,
+  "role": "PASSENGER",
+  "availableSeats": 0,
+  "costPer100KmEUR": 0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Sam Young",
+  "email": "sam.young@example.com",
+  "password": "Password22!",
+  "phone": "+359889012345",
+  "homeAddress": "21 Patriarch Evtimiy Blvd, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "07:45:00",
+  "preferredArrivalEnd": "08:45:00",
+  "flexibilityMinutes": 10,
+  "flexibilityKm": 5.0,
+  "role": "PASSENGER",
+  "availableSeats": 0,
+  "costPer100KmEUR": 0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Bob Johnson",
+  "email": "bob.johnson@example.com",
+  "password": "Password22!",
+  "phone": "+359887123456",
+  "homeAddress": "10 Knyaz Boris I St, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:15:00",
+  "preferredArrivalEnd": "09:15:00",
+  "flexibilityMinutes": 10,
+  "flexibilityKm": 3.5,
+  "role": "DRIVER",
+  "availableSeats": 3,
+  "costPer100KmEUR": 12.5
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "David Brown",
+  "email": "david.brown@example.com",
+  "password": "Password22!",
+  "phone": "+359887234567",
+  "homeAddress": "20 Angel Kanchev St, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:30:00",
+  "preferredArrivalEnd": "09:30:00",
+  "flexibilityMinutes": 15,
+  "flexibilityKm": 4.0,
+  "role": "DRIVER",
+  "availableSeats": 2,
+  "costPer100KmEUR": 15.0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Frank Miller",
+  "email": "frank.miller@example.com",
+  "password": "Password22!",
+  "phone": "+359887345678",
+  "homeAddress": "35 Hristo Botev Blvd, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:15:00",
+  "preferredArrivalEnd": "09:15:00",
+  "flexibilityMinutes": 20,
+  "flexibilityKm": 3.0,
+  "role": "DRIVER",
+  "availableSeats": 3,
+  "costPer100KmEUR": 13.0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Henry Moore",
+  "email": "henry.moore@example.com",
+  "password": "Password22!",
+  "phone": "+359887456789",
+  "homeAddress": "14 Dondukov Blvd, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:30:00",
+  "preferredArrivalEnd": "09:30:00",
+  "flexibilityMinutes": 10,
+  "flexibilityKm": 6.0,
+  "role": "DRIVER",
+  "availableSeats": 4,
+  "costPer100KmEUR": 10.5
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Jack Anderson",
+  "email": "jack.anderson@example.com",
+  "password": "Password22!",
+  "phone": "+359887567890",
+  "homeAddress": "9 Pozitano St, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:15:00",
+  "preferredArrivalEnd": "09:15:00",
+  "flexibilityMinutes": 20,
+  "flexibilityKm": 3.5,
+  "role": "DRIVER",
+  "availableSeats": 3,
+  "costPer100KmEUR": 12.0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Leo Jackson",
+  "email": "leo.jackson@example.com",
+  "password": "Password22!",
+  "phone": "+359887678901",
+  "homeAddress": "6 Alabin St, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:30:00",
+  "preferredArrivalEnd": "09:30:00",
+  "flexibilityMinutes": 15,
+  "flexibilityKm": 6.5,
+  "role": "DRIVER",
+  "availableSeats": 4,
+  "costPer100KmEUR": 11.0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Nick Harris",
+  "email": "nick.harris@example.com",
+  "password": "Password22!",
+  "phone": "+359887789012",
+  "homeAddress": "30 6th September St, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:15:00",
+  "preferredArrivalEnd": "09:15:00",
+  "flexibilityMinutes": 20,
+  "flexibilityKm": 4.0,
+  "role": "DRIVER",
+  "availableSeats": 3,
+  "costPer100KmEUR": 13.5
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Paul Lee",
+  "email": "paul.lee@example.com",
+  "password": "Password22!",
+  "phone": "+359887890123",
+  "homeAddress": "18 Han Asparuh St, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:30:00",
+  "preferredArrivalEnd": "09:30:00",
+  "flexibilityMinutes": 10,
+  "flexibilityKm": 5.0,
+  "role": "DRIVER",
+  "availableSeats": 2,
+  "costPer100KmEUR": 15.0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Rachel Hall",
+  "email": "rachel.hall@example.com",
+  "password": "Password22!",
+  "phone": "+359887901234",
+  "homeAddress": "11 Maria Luiza Blvd, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:15:00",
+  "preferredArrivalEnd": "09:15:00",
+  "flexibilityMinutes": 20,
+  "flexibilityKm": 6.0,
+  "role": "DRIVER",
+  "availableSeats": 4,
+  "costPer100KmEUR": 10.0
+}
+
+###
+
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+  "name": "Tina King",
+  "email": "tina.king@example.com",
+  "password": "Password22!",
+  "phone": "+359886012345",
+  "homeAddress": "22 Solunska St, Sofia, Bulgaria",
+  "officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+  "preferredArrivalStart": "08:30:00",
+  "preferredArrivalEnd": "09:30:00",
+  "flexibilityMinutes": 15,
+  "flexibilityKm": 3.5,
+  "role": "DRIVER",
+  "availableSeats": 3,
+  "costPer100KmEUR": 12.0
+}
