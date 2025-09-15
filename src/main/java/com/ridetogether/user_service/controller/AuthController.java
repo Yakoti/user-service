@@ -5,6 +5,7 @@ import com.ridetogether.user_service.model.LoginRequest;
 import com.ridetogether.user_service.model.RegisterRequest;
 import com.ridetogether.user_service.model.User;
 import com.ridetogether.user_service.repository.UserRepository;
+import com.ridetogether.user_service.service.AuthService;
 import com.ridetogether.user_service.service.JwtService;
 import com.ridetogether.user_service.service.UserService;
 import jakarta.validation.Valid;
@@ -17,6 +18,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 //TODO: logout controller maybe not needed?
 
 
@@ -26,88 +29,44 @@ public class AuthController {
 
     private final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
-    private final UserService userService;
+    private final AuthService authService;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
 
-    public AuthController(UserRepository userRepository, UserService userService,
+    public AuthController(AuthService authService,
                           PasswordEncoder passwordEncoder,
                           JwtService jwtService) {
-        this.userService = userService;
+        this.authService = authService;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
     }
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody RegisterRequest request, BindingResult result) {
-        logger.info("Register endpoint request: " + request.toString());
-        logger.info("Register endpoint request result: " + result.toString());
-
-        // 1) Check if email is taken
-        if (userService.findByEmail(request.getEmail()).isPresent()) {
-            return ResponseEntity
-                    .badRequest()
-                    .body("EMAIL_INVALID " + "Account with this email: " + request.getEmail() + " already exists");
-        }
-
-        //2) Handle different invalid inputs
-        /*
-            one option is to return a JSON
-            static class ErrorResponse {
-                private String errorCode;
-                private String message;
-         */
+        //map validation errors to a simple error response
         if (result.hasErrors()) {
-            for (FieldError error : result.getFieldErrors()) {
-                String field = error.getField();
-                String msg = error.getDefaultMessage();
-                switch (field) {
-                    case "email":
-                        return ResponseEntity.badRequest()
-                                .body("EMAIL_INVALID " + msg);
-                    case "password":
-                        return ResponseEntity.badRequest()
-                                .body("PASSWORD_INVALID " + msg);
-                    case "phone":
-                        return ResponseEntity.badRequest()
-                                .body("PHONE_INVALID " + msg);
-                    case "flexibilityMinutes":
-                        return ResponseEntity.badRequest()
-                                .body("FLEXIBILITY_MINUTES_INVALID " + msg);
-                    case "flexibilityKm":
-                        return ResponseEntity.badRequest()
-                                .body("FLEXIBILITY_KM_INVALID " + msg);
-                    case "role":
-                        return ResponseEntity.badRequest()
-                                .body("ROLE_INVALID " + msg);
-                }
-            }
-            return ResponseEntity.badRequest()
-                    .body("VALIDATION_ERROR Invalid register request");
+            List<String> errors = result.getFieldErrors().stream()
+                    .map(e -> e.getField() + ": " + e.getDefaultMessage())
+                    .toList();
+            return ResponseEntity.badRequest().body(errors);
         }
-        User user = userService.registerNewUser(request);
-        logger.info("User parsed from request: " + user.toString());
-        return ResponseEntity.ok(user);
+
+        try {
+            String token = authService.register(request);
+            return ResponseEntity.ok(token);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
-        logger.info("Login endpoint request: " + request.toString());
-
-        if (userService.findByEmail(request.getEmail()).isEmpty()) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
+        try{
+            String token = authService.login(request);
+            return ResponseEntity.ok(token);
+        }catch(IllegalArgumentException e){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
-
-        User user = userService.findByEmail(request.getEmail()).get();
-
-        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
-        }
-
-        String token = jwtService.generateToken(user);
-
-        logger.info("Login endpoint generated token: " + token.toString() + " for user: " + user.getName());
-        return ResponseEntity.ok(token);
     }
 
     @GetMapping("/test")

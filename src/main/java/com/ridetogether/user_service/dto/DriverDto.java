@@ -1,24 +1,19 @@
-package com.ridetogether.user_service.model;
+package com.ridetogether.user_service.dto;
 
-import jakarta.persistence.*;
-import lombok.*;
+import com.ridetogether.user_service.model.UserRole;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalTime;
 
-//TODO: add password, contact info, and so on
-
-@Entity
-@Table(name = "users")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Getter
+@Setter
+public class DriverDto {
     private Long id;
-
     private String name;
     private String email;
-    private String password;
     private String phone;
     private String homeAddress;
     private String officeAddress;
@@ -26,11 +21,8 @@ public class User {
     private LocalTime preferredArrivalEnd;
     private int flexibilityMinutes;
     private double flexibilityKm;
-
-    @Enumerated(EnumType.STRING)
     private UserRole role;
 
     private int availableSeats;
     private double costPer100KmEUR;
-
 }
