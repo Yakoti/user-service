@@ -16,6 +16,44 @@ Content-Type: application/json
   "availableSeats": 0,
   "costPer100KmEUR": 0
 }
+###
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+"name": "Angel Tatcheff",
+"email": "a.tatcheff@abv.bg",
+"password": "Password23!",
+"phone": "+359888123456",
+"homeAddress": "69 Todor Dzebarov Blvd, Sofia, Bulgaria",
+"officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+"preferredArrivalStart": "09:30:00",
+"preferredArrivalEnd": "09:45:00",
+"flexibilityMinutes": 15,
+"flexibilityKm": 3.0,
+"role": "PASSENGER",
+"availableSeats": 0,
+"costPer100KmEUR": 0
+}
+###
+POST http://localhost:8081/auth/register
+Content-Type: application/json
+
+{
+"name": "Angel Tatchev",
+"email": "qwertypacter@gmail.com",
+"password": "Password24!",
+"phone": "+359888123456",
+"homeAddress": "16 Todor Dzebarov Blvd, Sofia, Bulgaria",
+"officeAddress": "51 Cherni Vrah Blvd, Sofia, Bulgaria",
+"preferredArrivalStart": "09:30:00",
+"preferredArrivalEnd": "09:45:00",
+"flexibilityMinutes": 15,
+"flexibilityKm": 1.5,
+"role": "DRIVER",
+"availableSeats": 2,
+"costPer100KmEUR": 0
+}
 
 ###
 
